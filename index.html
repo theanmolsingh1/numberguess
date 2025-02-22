@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {
+                display: flex;
+                height: 100vh;
+                width: 100%;
+                background-color: rgb(173, 211, 60);
+                color: white;
+                align-items: center;
+                justify-content: center;
+            }
+            .box {
+                display: flex;
+                flex-direction: column;
+                width: 1000px;
+                height: auto;
+                background-color:rgb(191, 202, 29);
+                border-radius: 20px;
+                box-shadow: rgb(42, 150, 25) -3px -3px 20px;
+                align-items: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="box"><h1 style="color: black; font-size:20px ; margin-bottom: 8px; margin-top: 20px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-shadow: 1px 1px 2px;">Hehe Can You Guess, what i'm thinking.</h1>
+        <input type="number" placeholder="Guess between 0 to 10 only." id="num" style="margin-bottom: 6px; border-radius: 10px; width: 200px; height: 30px; text-align: center;"><button onclick="fun()" style="width: 80px; height:40px;color: rgb(249, 249, 245); border-radius: 10px; background-color: rgb(0, 0, 0);"><b>Guess</b></button>
+             <p id="ss"></p>
+            <script>
+
+                document.getElementById("num").addEventListener("keypress",function(event){
+                    if(event.key === "Enter"){
+                        fun();
+                    }
+                })
+                function fun(){
+                    let d = Math.floor(Math.random()*10)+1;
+                    let numm = document.getElementById("num").value;
+                    if(numm ==="") return;
+                    let num = parseInt(numm);
+                    let ans = document.getElementById("ss");
+                    ans.style.color = "black";
+                    ans.style.fontSize = "20px"
+                    if(d===num){
+                        ans.style.color = "blue";
+                        ans.style.fontSize = "30px";
+                        ans.innerHTML = "Right, You Guessed " + num +".";
+                        document.getElementById("num").innerHTML="";
+                        return;
+                    }
+                    ans.innerHTML = "No, I was thinking about "+ d +" number, TRY AGAIN."
+                    document.getElementById("num").value="";
+                }
+            </script>
+    </div>
+    </body>
+</html>
